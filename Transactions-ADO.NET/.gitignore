@@ -38,7 +38,6 @@ artifacts/
 
 appsettings.json
 appsettings.Development.json
-web.config
 web.Debug.config
 web.Release.config
 
