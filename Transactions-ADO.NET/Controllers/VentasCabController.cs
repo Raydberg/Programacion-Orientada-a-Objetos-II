@@ -12,11 +12,9 @@ namespace Transactions_ADO.NET.Controllers
         [HttpGet]
         public ActionResult ObtenerVentas ()
         {
-            // Obtener listas de vendedores y clientes para los selects
             var vendedores = ventasCabDao.ObtenerVendedores();
             var clientes = ventasCabDao.ObtenerClientes();
 
-            // Crear el ViewModel para la vista
             var viewModel = new FiltroVentaViewModel
             {
                 Vendedores = vendedores.Select(v => new SelectListItem
@@ -31,16 +29,13 @@ namespace Transactions_ADO.NET.Controllers
                 }).ToList()
             };
 
-            return View(viewModel); // Vista principal
+            return View(viewModel);
         }
 
         [HttpPost]
         public ActionResult Filtrar (FiltroVenta filtros)
         {
-            // Obtener las ventas filtradas
             var ventas = ventasCabDao.ListarVentasCabs(filtros);
-
-            // Devolver resultados como una vista parcial
             return PartialView("_ResultadosParciales", ventas);
         }
     }
