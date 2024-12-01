@@ -1,0 +1,115 @@
+﻿@model IEnumerable<IntroduccionADO.NET.Models.PedidoDetalle>
+
+@{
+    ViewBag.Title = "ListarPedidosDetalles";
+}
+
+<h2>ListarPedidosDetalles</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPedido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaPedido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioUnidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descuento)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPedido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaPedido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioUnidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descuento)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new
+                {
+                    /* id=item.PrimaryKey */
+                }) |
+                @Html.ActionLink("Details", "Details", new
+                {
+                    /* id=item.PrimaryKey */
+                }) |
+                @Html.ActionLink("Delete", "Delete", new
+                {
+                    /* id=item.PrimaryKey */
+                })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item @(ViewBag.pagina == 0 ? "disabled" : "")">
+            <a class="page-link" href="@Url.Action("ListarPedidosDetalles", new { pagina = ViewBag.pagina - 1 })" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        @for (int i = 0; i < ViewBag.numeroPaginas; i++)
+        {
+            <li class="page-item @(ViewBag.pagina == i ? "active" : "")">
+                <a class="page-link" href="@Url.Action("ListarPedidosDetalles", new { pagina = i })">@i + 1</a>
+            </li>
+        }
+        <li class="page-item @(ViewBag.pagina == ViewBag.numeroPaginas - 1 ? "disabled" : "")">
+            <a class="page-link" href="@Url.Action("ListarPedidosDetalles", new { pagina = ViewBag.pagina + 1 })" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>*@
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item @(ViewBag.pagina == 0 ? "disabled" : "")">
+            <a class="page-link" href="@Url.Action("ListarPedidosDetalles", new { pagina = ViewBag.pagina - 1 })" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        @for (int i = Math.Max(0, ViewBag.pagina - 2) ; i < Math.Min(ViewBag.numeroPaginas, ViewBag.pagina + 3) ; i++)
+        {
+            <li class="page-item @(i == ViewBag.pagina ? "active" : "")">
+                <a class="page-link" href="@Url.Action("ListarPedidosDetalles", new { pagina = i })">@(i + 1)</a>
+            </li>
+        }
+        <li class="page-item @(ViewBag.pagina >= ViewBag.numeroPaginas - 1 ? "disabled" : "")">
+            <a class="page-link" href="@Url.Action("ListarPedidosDetalles", new { pagina = ViewBag.pagina + 1 })" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>

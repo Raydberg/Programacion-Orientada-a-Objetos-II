@@ -120,13 +120,22 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PedidoDetalleController.cs" />
+    <Compile Include="Controllers\ProductoCategoriaController.cs" />
+    <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
+    <Compile Include="DAO\PedidoDetalleDAO.cs" />
+    <Compile Include="DAO\ProductoCategoriaDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\PedidoDetalle.cs" />
+    <Compile Include="Models\ProductoCategoria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +190,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Cliente\ListadoClientes.cshtml" />
+    <Content Include="Views\Categoria\ListarCategorias.cshtml" />
+    <Content Include="Views\PedidoDetalle\ListarPedidosDetalles.cshtml" />
+    <Content Include="Views\ProductoCategoria\ListarProductoPorCategoria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

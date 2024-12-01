@@ -10,7 +10,7 @@ namespace IntroduccionADO.NET
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute("Default", "{controller}/{action}/{id}"
-                , new { controller = "Cliente", action = "ListadoClientes", id = UrlParameter.Optional });
+                , new { controller = "Home", action = "Index", id = UrlParameter.Optional });
         }
     }
 }

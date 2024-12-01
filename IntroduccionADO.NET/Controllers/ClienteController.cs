@@ -1,4 +1,5 @@
 ﻿using IntroduccionADO.NET.DAO;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace IntroduccionADO.NET.Controllers
@@ -9,10 +10,20 @@ namespace IntroduccionADO.NET.Controllers
 
         // GET: Cliente
         [HttpGet]
-        public ActionResult ListadoClientes ()
+        public ActionResult ListadoClientes (int pagina = 0)
         {
-            var listado = clienteDao.ListarClientes();
-            return View(listado);
+            var cantidadTotal = clienteDao.ListarClientes().Count();
+            var cantidadPorPagina = 15;
+            var numeroPaginas = (cantidadTotal + cantidadPorPagina - 1) / cantidadPorPagina;
+
+            ViewBag.pagina = pagina;
+            ViewBag.numeroPaginas = numeroPaginas;
+
+            var clientes = clienteDao.ListarClientes().Skip(cantidadPorPagina * pagina).Take(cantidadPorPagina).ToList();
+
+            return View(clientes);
         }
+
+
     }
 }
