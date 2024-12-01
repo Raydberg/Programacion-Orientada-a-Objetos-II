@@ -1,0 +1,96 @@
+﻿@model Transactions_ADO.NET.Models.Cliente
+
+@{
+    ViewBag.Title = "EliminarCliente";
+}
+
+<h2>EliminarCliente</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cod_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cod_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cor_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cor_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dir_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dir_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cred_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cred_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fec_nac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fec_nac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cod_dist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cod_dist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eli_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eli_cli)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "ListarClientes")
+        </div>
+    }
+</div>
