@@ -1,0 +1,30 @@
+﻿@model List<Transactions_ADO.NET.Models.VentasCab>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Vendedor</th>
+            <th>Cliente</th>
+            <th>Fecha Venta</th>
+            <th>Total Venta</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var venta in Model)
+        {
+            <tr>
+                <td>@venta.NomVen</td>
+                <td>@venta.CodCli</td>
+                <td>@venta.FecVta.ToString("dd/MM/yyyy")</td>
+                <td>@venta.TotVta.ToString("C")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No se encontraron resultados.</p>
+}

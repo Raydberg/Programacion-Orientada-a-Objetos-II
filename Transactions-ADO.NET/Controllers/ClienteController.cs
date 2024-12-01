@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using Transactions_ADO.NET.DAO;
 using Transactions_ADO.NET.Models;
@@ -11,9 +12,17 @@ namespace Transactions_ADO.NET.Controllers
         private readonly DistritoDAO distritoDAO = new DistritoDAO();
 
         [HttpGet]
-        public ActionResult ListarClientes (string eli_cli = "No")
+        public ActionResult ListarClientes (string eli_cli = "No", int pagina = 0)
         {
-            var listado = clienteDAO.ListarClientes(eli_cli);
+            var cantidadTotal = clienteDAO.ListarClientes(eli_cli).Count;
+            var cantidadPorPagina = 5;
+            var numeroPaginas = (cantidadTotal + cantidadPorPagina - 1) / cantidadPorPagina;
+
+            ViewBag.pagina = pagina;
+            ViewBag.numeroPaginas = numeroPaginas;
+
+
+            var listado = clienteDAO.ListarClientes(eli_cli).Skip(cantidadPorPagina * pagina).Take(cantidadPorPagina);
 
             return View(listado);
         }

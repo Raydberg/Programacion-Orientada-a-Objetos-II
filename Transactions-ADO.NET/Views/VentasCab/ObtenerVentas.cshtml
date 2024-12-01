@@ -1,0 +1,42 @@
+﻿@model Transactions_ADO.NET.Models.FiltroVentaViewModel
+
+<h2>Filtrar Ventas</h2>
+
+@using (Html.BeginForm("Filtrar", "VentasCab", FormMethod.Post, new { id = "form-filtros" }))
+{
+    <div class="form-group">
+        <label for="CodVen">Vendedor:</label>
+        @Html.DropDownListFor(m => m.CodVen, Model.Vendedores, "Seleccione un vendedor", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="CodCli">Cliente:</label>
+        @Html.DropDownListFor(m => m.CodCli, Model.Clientes, "Seleccione un cliente", new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrar</button>
+}
+
+<div id="resultados">
+
+</div>
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#form-filtros").on("submit", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    //Metodo ajax para enviar los datos del formulario al controlador
+                    // Primer argumento de la url es el metodo y como segundo el nombre del controlador 
+               
+                    url: '@Url.Action("Filtrar", "VentasCab")',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function (data) {
+                        $("#resultados").html(data);
+                    }
+                });
+            });
+        });
+    </script>
+}

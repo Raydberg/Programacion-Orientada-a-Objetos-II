@@ -121,16 +121,21 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
-    <Compile Include="Controllers\DistritoController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VentasCabController.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\DistritoDAO.cs" />
+    <Compile Include="DAO\VendedorDAO.cs" />
+    <Compile Include="DAO\VentasCabDAO.cs" />
     <Compile Include="DataAccess\DataBaseConnection.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Distrito.cs" />
+    <Compile Include="Models\FiltroVenta.cs" />
+    <Compile Include="Models\FiltroVentaViewModel.cs" />
+    <Compile Include="Models\Vendedor.cs" />
+    <Compile Include="Models\VentasCab.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -181,14 +186,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Cliente\ListarClientes.cshtml" />
     <Content Include="Views\Cliente\GrabarClientes.cshtml" />
     <Content Include="Views\Cliente\DetalleCliente.cshtml" />
     <Content Include="Views\Cliente\EditarCliente.cshtml" />
     <Content Include="Views\Cliente\EliminarCliente.cshtml" />
+    <Content Include="Views\VentasCab\ListarVentasVendedor.cshtml" />
+    <Content Include="Views\VentasCab\ObtenerVentas.cshtml" />
+    <Content Include="Views\VentasCab\_ResultadosParciales.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
