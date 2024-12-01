@@ -72,26 +72,6 @@
 
 </table>
 
-@*<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-        <li class="page-item @(ViewBag.pagina == 0 ? "disabled" : "")">
-            <a class="page-link" href="@Url.Action("ListarPedidosDetalles", new { pagina = ViewBag.pagina - 1 })" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        @for (int i = 0; i < ViewBag.numeroPaginas; i++)
-        {
-            <li class="page-item @(ViewBag.pagina == i ? "active" : "")">
-                <a class="page-link" href="@Url.Action("ListarPedidosDetalles", new { pagina = i })">@i + 1</a>
-            </li>
-        }
-        <li class="page-item @(ViewBag.pagina == ViewBag.numeroPaginas - 1 ? "disabled" : "")">
-            <a class="page-link" href="@Url.Action("ListarPedidosDetalles", new { pagina = ViewBag.pagina + 1 })" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-    </ul>
-</nav>*@
 
 <nav aria-label="Page navigation example">
     <ul class="pagination">

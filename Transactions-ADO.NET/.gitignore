@@ -1,10 +1,3 @@
-﻿################################################################################
-# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
-################################################################################
-
-/IntroduccionADO.NET/Web.config
-/IntroduccionADO.NET/Web.Debug.config
-/IntroduccionADO.NET/Web.Release.config
 
 bin/
 obj/
