@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("Data.SQLServer")]
+[assembly: AssemblyTitle("App.Data.SQLServer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Data.SQLServer")]
+[assembly: AssemblyProduct("App.Data.SQLServer")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("b38ac2e6-41cd-4dae-a109-8546d553136e")]
+[assembly: Guid("e8b656aa-8280-4089-81ae-08362d333161")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //

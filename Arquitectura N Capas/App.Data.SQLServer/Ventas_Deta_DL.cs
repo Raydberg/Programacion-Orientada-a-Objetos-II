@@ -1,6 +1,6 @@
 ﻿namespace MainModule
 {
-    public class Class1
+    public class Ventas_Deta_DL
     {
     }
 }
