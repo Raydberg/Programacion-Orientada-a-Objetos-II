@@ -1,0 +1,107 @@
+﻿@model DropdownsAnidados.Models.ViajesRutaViewModel
+
+
+@{
+    ViewBag.Title = "ListarViajesPersonalizado";
+}
+
+<h2>ListarViajesPersonalizado</h2>
+
+<select id="viajesSelect">
+    <option value="">Selecione un Viaje</option>
+    @foreach (var viaje in Model.Viajes)
+    {
+        <option value="@viaje.Hora_Salida">@viaje.Hora_Salida</option>
+    }
+</select>
+
+<select id="rutasSelect">
+    <option value="">Selecione una Ruta</option>
+    
+    @foreach (var ruta in Model.Rutas)
+    {
+        <option value="@ruta.CodRuta">@ruta.Destino</option>
+    }
+
+</select>
+
+<select id="chofersSelect">
+    <option value="">Seleciona un Chofer</option>
+    
+    @foreach (var chofer in Model.Chofers)
+    {
+        <option value="@chofer.CodChofer">@chofer.NombreChofer</option>
+    }
+</select>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.ListarViajes.First().Cod_Ruta))</th>
+        <th>@Html.DisplayNameFor(model => model.ListarViajes.First().Cod_Chofer)</th>
+        <th>@Html.DisplayNameFor(model => model.ListarViajes.First().Nombre_Chofer)</th>
+        <th>@Html.DisplayNameFor(model => model.ListarViajes.First().Destino)</th>
+        <th>@Html.DisplayNameFor(model => model.ListarViajes.First().Hora_Salida)</th>
+        <th>@Html.DisplayNameFor(model => model.ListarViajes.First().Costo_Via)</th>
+        <th>@Html.DisplayNameFor(model => model.ListarViajes.First().Nro_Via)</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ListarViajes)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Cod_Ruta)</td>
+            <td>@Html.DisplayFor(modelItem => item.Cod_Chofer)</td>
+            <td>@Html.DisplayFor(modelItem => item.Nombre_Chofer)</td>
+            <td>@Html.DisplayFor(modelItem => item.Destino)</td>
+            <td>@Html.DisplayFor(modelItem => item.Hora_Salida)</td>
+            <td>@Html.DisplayFor(modelItem => item.Costo_Via)</td>
+            <td>@Html.DisplayFor(modelItem => item.Nro_Via)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    document.getElementById('viajesSelect').addEventListener('change', function() {
+        console.log("Viaje Selecionado :"+ this.value)
+    })
+    document.getElementById("rutasSelect").addEventListener('change', function() {
+        console.log("Codigo de ruta selecinado :" + this.value)
+    })
+
+    document.getElementById('chofersSelect').addEventListener('change', function () {
+        console.log("El id del chofer selecionado : " + this.value)
+    })
+
+
+    $(document).ready(function () {
+        $('#viajesSelect, #rutasSelect, #chofersSelect').change(function () {
+            var  cod_rut = $('#rutasSelect').val()
+            var cod_chof = $('#chofersSelect').val()
+            var hrs_sal = $('#viajesSelect').val()
+
+            $.ajax({
+                url: '@Url.Action("ListarViajesPersonalizado", "ListarViajes")',
+                type: "GET",
+                data: {
+                    cod_rut: cod_rut,
+                    cod_chof: cod_chof,
+                    hrs_sal: hrs_sal
+                },
+                success: function (result) {
+                    $('#viajesTable').html($(result)).find('#viajesTable').html())
+                }
+            })
+        })
+    })
+</script>
