@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Entities.Articulos>
+
+@{
+    ViewBag.Title = "ListarArticulos";
+}
+
+<h2>ListarArticulos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cod_art)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_art)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uni_med)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pre_art)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stk_art)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cod_art)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom_art)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uni_med)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pre_art)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stk_art)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

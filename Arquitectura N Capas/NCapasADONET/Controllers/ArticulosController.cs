@@ -11,8 +11,8 @@ namespace NCapasADONET.Controllers
         // GET: Articulos
         public ActionResult ListarArticulos ()
         {
-
-            return View();
+            var lista = manager.Listar_Articulos();
+            return View(lista);
         }
     }
 }

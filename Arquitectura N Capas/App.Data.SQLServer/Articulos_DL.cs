@@ -19,14 +19,10 @@ namespace MainModule
                 {
                     articulo = new Articulos()
                     {
-                        cod_art = reader.GetString(0)
-                        ,
-                        nom_art = reader.GetString(1)
-                        ,
-                        pre_art = reader.GetDecimal(2)
-                        ,
-                        uni_med = reader.GetString(3)
-                        ,
+                        cod_art = reader.GetString(0),
+                        nom_art = reader.GetString(1),
+                        uni_med = reader.GetString(2),
+                        pre_art = reader.GetDecimal(3),
                         stk_art = reader.GetInt32(4)
                     };
                     lista.Add(articulo);

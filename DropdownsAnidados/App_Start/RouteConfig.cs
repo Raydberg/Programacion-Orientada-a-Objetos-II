@@ -1,7 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace NCapasADONET
+namespace DropdownsAnidados
 {
     public class RouteConfig
     {
@@ -12,7 +16,7 @@ namespace NCapasADONET
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Articulos", action = "ListarArticulos", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
