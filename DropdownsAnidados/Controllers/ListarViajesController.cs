@@ -1,5 +1,6 @@
 ﻿using DropdownsAnidados.DAO;
 using DropdownsAnidados.Models;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace DropdownsAnidados.Controllers;
@@ -30,4 +31,59 @@ public class ListarViajesController : Controller
 
         return View(viewModel);
     }
+
+    [HttpGet]
+    public ActionResult EditarViajes (string nroVia)
+    {
+        var viaje = sp_Listar_Viajes_DAO.SP_ListarViajes().FirstOrDefault(v => v.Nro_Via == nroVia);
+        if (viaje == null)
+        {
+            return HttpNotFound();
+        }
+
+        var rutas = rutaDao.ListarRutas();
+        var chofers = choferDao.ListarChofers();
+
+        var viewModel = new ViajesRutaViewModel { Viaje = viaje, Rutas = rutas, Chofers = chofers };
+
+        return View(viewModel);
+    }
+
+    [HttpPost]
+    public ActionResult EditarViajes (ViajesRutaViewModel viewModel)
+    {
+        if (ModelState.IsValid)
+        {
+            sp_Listar_Viajes_DAO.SP_Editar_Viajes(
+                    viewModel.Viaje.Nro_Via,
+                    viewModel.Viaje.Cod_Ruta,
+                    viewModel.Viaje.Cod_Chofer,
+                    viewModel.Viaje.Hora_Salida,
+                    viewModel.Viaje.Costo_Via
+                );
+            return RedirectToAction("ListarViajesPersonalizado");
+        }
+
+        viewModel.Rutas = rutaDao.ListarRutas();
+        viewModel.Chofers = choferDao.ListarChofers();
+        return View(viewModel);
+    }
+
+    [HttpGet]
+    public ActionResult DetallesViaje (string nroVia)
+    {
+        var viaje = sp_Listar_Viajes_DAO.SP_ListarViajes().FirstOrDefault(v => v.Nro_Via == nroVia);
+        if (viaje == null)
+        {
+            return HttpNotFound();
+        }
+
+        var rutas = rutaDao.ListarRutas();
+        var chofers = choferDao.ListarChofers();
+
+        var viewModel = new ViajesRutaViewModel { Viaje = viaje, Rutas = rutas, Chofers = chofers };
+
+        return View(viewModel);
+    }
+
 }

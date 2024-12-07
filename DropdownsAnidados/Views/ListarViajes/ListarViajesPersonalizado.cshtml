@@ -59,9 +59,12 @@
                 <td>@Html.DisplayFor(modelItem => item.Costo_Via)</td>
                 <td>@Html.DisplayFor(modelItem => item.Nro_Via)</td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Edit", "EditarViajes", new { nroVia = item.Nro_Via }, new { @class = "btn btn-outline-primary" })
+                    @Html.ActionLink("Details", "DetallesViaje", new { nroVia = item.Nro_Via }, new { @class = "btn btn-outline-secondary" })
+                    @Html.ActionLink("Delete", "Delete", new
+                    {
+                        /* id=item.PrimaryKey */
+                    })
                 </td>
             </tr>
         }

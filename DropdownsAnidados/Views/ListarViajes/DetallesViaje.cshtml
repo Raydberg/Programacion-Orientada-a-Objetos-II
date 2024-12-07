@@ -1,0 +1,34 @@
+﻿@model DropdownsAnidados.Models.ViajesRutaViewModel
+
+@{
+    ViewBag.Title = "DetallesViaje";
+}
+
+<h2>Detalles del Viaje</h2>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Viaje.Nro_Via)
+    <p class="form-control-static">@Model.Viaje.Nro_Via</p>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Viaje.Cod_Ruta)
+    <p class="form-control-static">@Model.Viaje.Cod_Ruta</p>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Viaje.Cod_Chofer)
+    <p class="form-control-static">@Model.Viaje.Cod_Chofer</p>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Viaje.Hora_Salida)
+    <p class="form-control-static">@Model.Viaje.Hora_Salida</p>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Viaje.Costo_Via)
+    <p class="form-control-static">@Model.Viaje.Costo_Via</p>
+</div>
+
+@Html.ActionLink("Volver", "ListarViajesPersonalizado", null, new { @class = "btn btn-secondary" })

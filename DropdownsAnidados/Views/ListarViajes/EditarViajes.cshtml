@@ -1,0 +1,42 @@
+﻿@model DropdownsAnidados.Models.ViajesRutaViewModel
+
+@{
+    ViewBag.Title = "Editar Viaje";
+}
+
+<h2>Editar Viaje</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Viaje.Nro_Via)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viaje.Cod_Ruta)
+        @Html.DropDownListFor(model => model.Viaje.Cod_Ruta, new SelectList(Model.Rutas, "CodRuta", "Destino"), "Seleccione una Ruta", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Viaje.Cod_Ruta, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viaje.Cod_Chofer)
+        @Html.DropDownListFor(model => model.Viaje.Cod_Chofer, new SelectList(Model.Chofers, "CodChofer", "NombreChofer"), "Seleccione un Chofer", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Viaje.Cod_Chofer, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viaje.Hora_Salida)
+        @Html.EditorFor(model => model.Viaje.Hora_Salida, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Viaje.Hora_Salida, "", new { @class = "text-danger" })
+    </div>
+
+   
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Viaje.Costo_Via)
+        @Html.EditorFor(model => model.Viaje.Costo_Via, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Viaje.Costo_Via, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    @Html.ActionLink("Cancelar", "ListarViajesPersonalizado", null, new { @class = "btn btn-secondary" })
+}

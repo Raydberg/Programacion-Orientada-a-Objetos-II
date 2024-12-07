@@ -8,4 +8,5 @@ public class ViajesRutaViewModel
     public List<Ruta> Rutas { get; set; }
     public List<sp_ListarViajes> ListarViajes { get; set; }
     public List<Chofer> Chofers { get; set; }
+    public sp_ListarViajes Viaje { get; set; }
 }
