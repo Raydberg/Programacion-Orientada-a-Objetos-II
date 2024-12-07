@@ -18,7 +18,8 @@ public class ListarViajesController : Controller
         var viajes = viajeDao.ListarViajes();
         var rutas = rutaDao.ListarRutas();
         var chofers = choferDao.ListarChofers();
-        var sp_viajes = sp_Listar_Viajes_DAO.SP_ListarViajes();
+        var sp_viajes = sp_Listar_Viajes_DAO.SP_ListarViajes(cod_rut, cod_chof, hrs_sal);
+
         var viewModel = new ViajesRutaViewModel
         {
             Viajes = viajes,
