@@ -60,3 +60,19 @@ END;
 EXEC ActualizarViaje
     @nro_via = '100001', @costo_via= 89.00
 ```
+
+## Procedimiento Almacenado: `EliminarViaje`
+
+```sql
+CREATE PROCEDURE EliminarViaje
+    @nro_via CHAR(6)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    DELETE FROM Pasajeros WHERE nro_via = @nro_via;
+    DELETE FROM Viajes WHERE nro_via = @nro_via;
+END;
+GO
+# Ejemplo de uso
+EXEC EliminarViaje @nro_via = '100001';
+```

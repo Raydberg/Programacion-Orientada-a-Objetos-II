@@ -86,4 +86,12 @@ public class ListarViajesController : Controller
         return View(viewModel);
     }
 
+    [HttpGet]
+    public ActionResult EliminarViaje (string nroVia)
+    {
+        sp_Listar_Viajes_DAO.SP_Eliminar_Viaje(nroVia);
+        return RedirectToAction("ListarViajesPersonalizado");
+    }
+
+
 }

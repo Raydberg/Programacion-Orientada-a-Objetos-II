@@ -61,16 +61,12 @@
                 <td>
                     @Html.ActionLink("Edit", "EditarViajes", new { nroVia = item.Nro_Via }, new { @class = "btn btn-outline-primary" })
                     @Html.ActionLink("Details", "DetallesViaje", new { nroVia = item.Nro_Via }, new { @class = "btn btn-outline-secondary" })
-                    @Html.ActionLink("Delete", "Delete", new
-                    {
-                        /* id=item.PrimaryKey */
-                    })
+                    <button class="btn btn-outline-danger" onclick="confirmarEliminacion('@item.Nro_Via')">Eliminar</button>
                 </td>
             </tr>
         }
     </table>
 </div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     document.getElementById("viajesSelect").addEventListener("change",
@@ -111,4 +107,22 @@
             });
         });
     });
+
+    function confirmarEliminacion(nroVia) {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡No podrás revertir esto!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminarlo!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '@Url.Action("EliminarViaje", "ListarViajes")?nroVia=' + nroVia;
+            }
+        });
+    }
+
+
 </script>

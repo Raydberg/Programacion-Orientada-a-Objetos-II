@@ -94,4 +94,19 @@ public class sp_Listar_Viajes_DAO
     }
 
 
+    public void SP_Eliminar_Viaje (string nroVia)
+    {
+        var conexionSql = new SqlConnection(cadena);
+        conexionSql.Open();
+
+        var cmd = new SqlCommand("EliminarViaje", conexionSql);
+        cmd.CommandType = CommandType.StoredProcedure;
+
+        cmd.Parameters.AddWithValue("@nro_via", nroVia);
+        cmd.ExecuteNonQuery();
+        conexionSql.Close();
+    }
+
+
+
 }
